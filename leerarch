@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <iostream>
+
+using namespace std;
+
+int main()
+
+{
+
+FILE *archivo;
+char letra;
+archivo = fopen ("archivo.txt","r");
+if (archivo==NULL)
+{
+//printf( "No se puede abrir el archivo.\n" );
+cout << "No se puede abrir el archivo" <<endl ;
+exit( 1 );
+}
+
+cout<<( "Contenido del fichero:\n"  );
+letra=getc (archivo);
+while (feof (archivo)==0)
+{
+//printf( "%c",letra );
+cout << letra ;
+cout <<" ";
+letra=getc(archivo);
+}
+if (fclose (archivo)!=0)
+//printf( "Problemas al cerrar el archivo\n" );
+cout << "Problemas al cerrar el archivo" <<endl;
+cout <<endl;
+system ("PAUSE");
+}
